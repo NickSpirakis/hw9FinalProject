@@ -19,9 +19,10 @@ public class ScannerWeb {
 			Scanner in = new Scanner(link.openStream());
 			while(in.hasNextLine()) {
 				///do a systemout.println()??? for texting
+				System.out.println(in.nextLine());
 				
 			}
-			
+			in.close();
 		}catch (Exception ex) {
 			ex.printStackTrace();
 		}
