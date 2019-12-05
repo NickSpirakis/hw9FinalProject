@@ -12,16 +12,24 @@ public class UserInterface extends JFrame {
 	public void setupUI() {
 		textToShow = "";
 		setTitle("Top Websites Visted Monthly");
-		setBounds(400, 400, 1500, 1500);
+		setBounds(400, 400, 2000, 1600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 		
 		JPanel panNorth = new JPanel();
 		
+		Font f = new Font("Arial",Font.PLAIN,25);
+		
 		JLabel label = new JLabel("Enter URL");
-		JTextField txtToFetch = new JTextField(50);
+		label.setFont(f);
+		label.setBounds(50, 50, 200, 200);
+		JTextField txtToFetch = new JTextField(40);
+		txtToFetch.setBounds(50, 50, 200, 200);
+		txtToFetch.setFont(f);
 		JButton btnTxtToFetch = new JButton("Fetch");
+		btnTxtToFetch.setFont(f);
+		btnTxtToFetch.setBounds(50, 50, 200, 200);
 		btnTxtToFetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String text = txtToFetch.getText();
@@ -35,6 +43,28 @@ public class UserInterface extends JFrame {
 		panNorth.add(btnTxtToFetch);
 		
 		c.add(panNorth, BorderLayout.NORTH);
+		
+		JPanel panSouth = new JPanel();
+		
+		JButton btnSaveToText = new JButton("Save to text");
+		btnSaveToText.setBounds(150, 150, 300, 300);
+		btnSaveToText.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//save to text
+			}
+		});
+		
+		JButton btnSaveToJson = new JButton("Save to json");
+		btnSaveToJson.setBounds(150, 150, 300, 300);	//this should change size but on this one i dont think it does
+		btnSaveToText.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//save to json
+			}
+		});
+		panSouth.add(btnSaveToText);
+		panSouth.add(btnSaveToJson);
+		
+		c.add(panSouth, BorderLayout.SOUTH);
 		
 	}
 	
