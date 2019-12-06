@@ -12,7 +12,7 @@ public class UserInterface extends JFrame {
 	public void setupUI() {
 		textToShow = "";
 		setTitle("Top Websites Visted Monthly");
-		setBounds(400, 400, 2000, 1600);
+		setBounds(500, 500, 800, 800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
@@ -24,7 +24,7 @@ public class UserInterface extends JFrame {
 		JLabel label = new JLabel("Enter URL");
 		label.setFont(f);
 		label.setBounds(50, 50, 200, 200);
-		JTextField txtToFetch = new JTextField(40);
+		JTextField txtToFetch = new JTextField(20);
 		txtToFetch.setBounds(50, 50, 200, 200);
 		txtToFetch.setFont(f);
 		JButton btnTxtToFetch = new JButton("Fetch");
@@ -65,6 +65,7 @@ public class UserInterface extends JFrame {
 		panSouth.add(btnSaveToJson);
 		
 		c.add(panSouth, BorderLayout.SOUTH);
+		
 		
 	}
 	
