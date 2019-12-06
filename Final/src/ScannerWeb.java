@@ -35,9 +35,11 @@ public class ScannerWeb {
 				 * <td class="digit  /// should be able to gett all the data but will need another ifstatmetn in the block
 				 * 
 				 */
+				///do a systemout.println()??? for texting
+				System.out.println(in.nextLine());
 				
 			}
-			
+			in.close();
 		}catch (Exception ex) {
 			ex.printStackTrace();
 		}
