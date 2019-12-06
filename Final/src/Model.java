@@ -3,6 +3,7 @@
  * it has a toString that will format the data 
  * 
  * */
+
 public class Model {
 	/*
 	 *rank will hold the number pos in the list that it s in
@@ -17,7 +18,7 @@ public class Model {
 	}
 
 	public void setRank(String rank) {
-		this.rank = rank.strip();
+		this.rank = rank.trim();
 	}
 
 	public String getSite() {
@@ -25,7 +26,7 @@ public class Model {
 	}
 
 	public void setSite(String site) {////might need to just need say hidden profile
-		this.site = site.strip();
+		this.site = site.trim();
 	}
 
 	public String getPeople() {
@@ -33,7 +34,7 @@ public class Model {
 	}
 
 	public void setPeople(String people) {////might need to just need say hidden profile
-		this.people = people.strip();
+		this.people = people.trim();
 	}
 
 	

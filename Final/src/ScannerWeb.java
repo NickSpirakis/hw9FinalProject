@@ -40,7 +40,7 @@ public class ScannerWeb {
 			
 			while(in.hasNextLine()) {
 				rank = "-1" ;
-				name = "-1" ;
+				name = "-1" ; //// move this coplue of statmen in the check thine at the end of the loop 
 				number = "-1" ;
 				temp = new Model();
 				
