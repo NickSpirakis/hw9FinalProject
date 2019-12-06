@@ -17,7 +17,7 @@ public class Model {
 	}
 
 	public void setRank(String rank) {
-		this.rank = rank;
+		this.rank = rank.strip();
 	}
 
 	public String getSite() {
@@ -25,7 +25,7 @@ public class Model {
 	}
 
 	public void setSite(String site) {////might need to just need say hidden profile
-		this.site = site;
+		this.site = site.strip();
 	}
 
 	public String getPeople() {
@@ -33,7 +33,7 @@ public class Model {
 	}
 
 	public void setPeople(String people) {////might need to just need say hidden profile
-		this.people = people;
+		this.people = people.strip();
 	}
 
 	
@@ -54,9 +54,9 @@ public class Model {
 	
 	@Override
 	public String toString() {
-		String str;
+		String str = "";
 		
-		str = String.format("%s %5s %5s", getRank(), getSite(), getPeople() );
+		str = str + String.format("%s %s %s...", getRank(), getSite(), getPeople() );
 		
 		return str;
 	}	
