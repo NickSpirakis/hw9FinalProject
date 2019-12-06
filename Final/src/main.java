@@ -1,11 +1,5 @@
-///testing ----ap
+
 public class main {
+	//add main if needed
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//test
-	}
-
-	//UserInterface ui = new UserInterface();
-	//ui.setVisible(true);
-}
+}//end  of class
