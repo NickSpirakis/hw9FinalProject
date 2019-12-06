@@ -11,14 +11,30 @@ import java.util.Scanner;
  */
 public class ScannerWeb {
 	ArrayList<Model> webList = new ArrayList<Model>();
+	/////////////using this main for test then remove it 
+	public static void main(String[] args) {
+		ScannerWeb.scraper("https://www.quantcast.com/top-sites/US?userView=Public");
+		
+	}
 	
 	
-	public void Scraper(String webName) {
+	public static void scraper(String webName) {
 		try {
-			URL link = new URL(webName);
+			URL link = new URL(webName);//later put in webName
 			Scanner in = new Scanner(link.openStream());
 			while(in.hasNextLine()) {
-				///do a systemout.println()??? for texting
+				System.out.println(in.nextLine());
+				
+				
+				/* this to pick ut and gettin the data in the website
+				 * 
+				 * <td class="rank"  id=
+				 * 
+				 * <img class="favicon" name  //// but this does get all the daat like the hidden 
+				 * 
+				 * <td class="digit  /// should be able to gett all the data but will need another ifstatmetn in the block
+				 * 
+				 */
 				
 			}
 			
