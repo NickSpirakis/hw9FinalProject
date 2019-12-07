@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class UserInterface extends JFrame {
 
+	//hola just a test
 	private String textToShow;
 	private JTextArea tx;
 	
@@ -98,6 +99,7 @@ public class UserInterface extends JFrame {
 		c.add(panSouth, BorderLayout.SOUTH);
 		
 		setUpMenu();
+	
 		
 	}
 	
