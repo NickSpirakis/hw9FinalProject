@@ -11,6 +11,7 @@ public class UserInterface extends JFrame {
 	
 	public void setUpMenu() {
 		
+		
 		JMenuBar mbar = new JMenuBar();
 		JMenu menuFile = new JMenu("File"); //exit
 		JMenu menuHelp = new JMenu("Help"); //about
