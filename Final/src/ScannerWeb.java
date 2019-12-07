@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 /* The website that we are going to use is 
  * https://www.quantcast.com/top-sites/US?userView=Public 
  * a list of the most visited website
@@ -13,7 +12,7 @@ public class ScannerWeb {
 	private static String rank="-1", name="-1", number="-1";
 	private static Model temp;
 	
-	
+	/*
 	/////////////using this main for test then remove it 
 	public static void main(String[] args) {
 		ScannerWeb.scraper("https://www.quantcast.com/top-sites/US?userView=Public");
@@ -22,6 +21,7 @@ public class ScannerWeb {
 			}
 		
 	}//end of main/// fir testing 
+	*/
 	
 	
 	public static void scraper(String webName) {

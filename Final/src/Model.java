@@ -1,10 +1,12 @@
+import java.io.Serializable;
+
 /**
  * This class will hold the any data that we need it to hold from the website  
  * it has a toString that will format the data 
  * 
  * */
 
-public class Model {
+public class Model implements Serializable {
 	/*
 	 *rank will hold the number pos in the list that it s in
 	 *site i s the name of website 
