@@ -7,6 +7,7 @@ import javax.swing.*;
 public class UserInterface extends JFrame {
 
 	//hola just a test
+	
 	private String textToShow;
 	private JTextArea tx;
 	
