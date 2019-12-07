@@ -1,8 +1,7 @@
 import java.net.URL;
 import java.util.ArrayList; 
 import java.util.Scanner;
-//us this function openStream()  which will funnel the web data into the applcaiotn 
-//need a try catch block
+
 
 
 /* The website that we are going to use is 
@@ -11,7 +10,7 @@ import java.util.Scanner;
  */
 public class ScannerWeb {
 	private static ArrayList<Model> webList = new ArrayList<Model>();
-	private static String rank, name, number;
+	private static String rank="-1", name="-1", number="-1";
 	private static Model temp;
 	
 	
@@ -38,15 +37,10 @@ public class ScannerWeb {
 			t3 = "<td class=\"digit ";
 			
 			
-			while(in.hasNextLine()) {
-				rank = "-1" ;
-				name = "-1" ; //// move this coplue of statmen in the check thine at the end of the loop 
-				number = "-1" ;
-				temp = new Model();
-				
-				
+			while(in.hasNextLine()) {				
 				nextLine = in.nextLine();//temp String
-				
+				//System.out.println(nextLine);//testing				
+
 				
 				/* This part is going to filter and parse out the line to get one word and will save it to String rank */
 				
@@ -60,7 +54,7 @@ public class ScannerWeb {
 						rank = nextLine.trim().substring(22,30);
 						rank  = rank.replaceAll("\"","").replaceAll(">", "");
 						//System.out.println(rank);//testing
-						temp.setRank(rank);
+						
 					}					
 				}//end of rank filter
 				
@@ -80,7 +74,7 @@ public class ScannerWeb {
 							
 						} else {name = "Hidden";}
 						//System.out.println(name);//testing
-						temp.setSite(name);
+						
 					}					
 				}//end of name filter
 				
@@ -98,20 +92,23 @@ public class ScannerWeb {
 							in.nextLine();//skipping the blank lines with in the HTML
 							in.nextLine();
 							in.nextLine();
-							number = in.nextLine().trim();
-							
+							number = in.nextLine().trim();							
 						} else {number = "---";}						
-						//System.out.println(number);//testing
-						temp.setPeople(number);
-
-						
-					}
-					
+						//System.out.println(number);//testing											
+					}					
 				}//end of number filter
-				/////////////fix ad re move to a differnt plaec
-				if(  !(rank.equals("-1") && name.equals("-1") && number.equals("-1"))  ) {
-					webList.add(temp);
-				}
+				
+				
+				
+				/* This part will check to see if there is something in all of the three var's
+				 * if soe the add it to the ArrayList  and then reset back the values to do the process over again */				
+				if(  !(rank.equals("-1")) && !(name.equals("-1")) && !(number.equals("-1"))   )   {
+					webList.add(new Model(rank,name,number));
+					////reseting the values 
+					rank = "-1" ;
+					name = "-1" ;
+					number = "-1" ;				
+				}//end of checker
 				
 				
 			}//end if while loop
@@ -122,6 +119,11 @@ public class ScannerWeb {
 			System.out.println("Something went wrong when trying to scan in the link.");
 		}
 	}//end of function
+
+	
+	public static ArrayList<Model> getList(){
+		return webList;
+	}
 	
 
 }//end of class

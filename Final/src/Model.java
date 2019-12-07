@@ -57,7 +57,7 @@ public class Model {
 	public String toString() {
 		String str = "";
 		
-		str = str + String.format("%s %s %s...", getRank(), getSite(), getPeople() );
+		str = str + String.format("%.10s   \t%s....................  %s", getRank(), getSite(), getPeople() );
 		
 		return str;
 	}	
