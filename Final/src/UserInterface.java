@@ -10,8 +10,9 @@ public class UserInterface extends JFrame {
 
 	
 	
-	private String textToShow;
+	//private String textToShow;
 	private JTextArea tx;
+	ArrayList<Model> textToShow;
 	
 	public void setUpMenu() {
 		
@@ -41,7 +42,7 @@ public class UserInterface extends JFrame {
 		setJMenuBar(mbar);
 	}
 	public void setupUI() {
-		ArrayList<Model> textToShow;
+		//ArrayList<Model> textToShow;
 		setTitle("Top Websites Visted Monthly");
 		setBounds(500, 500, 800, 800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -63,13 +64,23 @@ public class UserInterface extends JFrame {
 		JButton btnTxtToFetch = new JButton("Fetch");
 		btnTxtToFetch.setFont(f);
 		btnTxtToFetch.setBounds(50, 50, 200, 200);
+		
+		tx = new JTextArea();
+		c.add(tx, BorderLayout.CENTER);
+		
 		btnTxtToFetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//tx = new JTextArea();
 				String text = txtToFetch.getText();
 				ScannerWeb.scraper(text);
-				//textToShow = ScannerWeb.getList();
-				tx.append("hello");
-				//(textToShow);
+				String str ="";
+				textToShow = ScannerWeb.getList();
+				for (int i = 0; i < textToShow.size(); i++) {
+					
+					str = str + String.format("%s%25s %s", textToShow.get(i).getRank(), textToShow.get(i).getSite(), textToShow.get(i).getPeople() );
+					str = str + "\n";
+					tx.setText(str);
+				}
 				
 			}
 		});
@@ -79,6 +90,8 @@ public class UserInterface extends JFrame {
 		panNorth.add(btnTxtToFetch);
 		
 		c.add(panNorth, BorderLayout.NORTH);
+		
+		
 		
 		JPanel panSouth = new JPanel();
 		
