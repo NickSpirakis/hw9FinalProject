@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+/**
+ * setUpMenu function is 
+ * */
+
+
 public class UserInterface extends JFrame {
 
 	
@@ -66,6 +71,8 @@ public class UserInterface extends JFrame {
 		btnTxtToFetch.setBounds(50, 50, 200, 200);
 		
 		tx = new JTextArea();
+		JScrollPane scroll = new JScrollPane(tx, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		c.add(scroll);
 		c.add(tx, BorderLayout.CENTER);
 		
 		btnTxtToFetch.addActionListener(new ActionListener() {
