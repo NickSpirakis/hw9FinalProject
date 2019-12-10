@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Writer {
 	
 	//this function writes to a text file
-	public static boolean toTextFile(String fname, ArrayList<Model> mod) {
+	public static boolean toTextFile(File fname, ArrayList<Model> mod) {
 		PrintWriter pw;
 		try {//checking if everything is OK
 			pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));			
@@ -32,7 +32,7 @@ public class Writer {
 	}//end of toTextFile()
 	
 	
-	public static boolean writeMembersToJSON(String fname, ArrayList<Model> mod) {
+	public static boolean writeMembersToJSON(File fname, ArrayList<Model> mod) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
 			JSONObject modObj;

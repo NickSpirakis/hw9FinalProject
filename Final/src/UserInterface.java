@@ -104,7 +104,7 @@ public class UserInterface extends JFrame {
 					JFileChooser saveText = new JFileChooser("c:\\");
 					if(saveText.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 						
-						if (Writer.toTextFile(fname, ScannerWeb.getList())) {
+						if (Writer.toTextFile(saveText.getSelectedFile(), ScannerWeb.getList())) {
 							JOptionPane.showMessageDialog(null, "File Svaed");
 						} else {
 							JOptionPane.showMessageDialog(null, "File not saved");
@@ -118,13 +118,13 @@ public class UserInterface extends JFrame {
 		
 		JButton btnSaveToJson = new JButton("Save to json");
 		btnSaveToJson.setBounds(150, 150, 300, 300);	//this should change size but on this one i don't think it does
-		btnSaveToText.addActionListener(new ActionListener() {
+		btnSaveToJson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//save to json
 				try {
-					JFileChooser saveJson = new JFileChooser(new File("c:\\"));
+					JFileChooser saveJson = new JFileChooser(new File("c:\\temp\\"));
 					if(saveJson.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-						if (Writer.writeMembersToJSON(fname, ScannerWeb.getList())) {
+						if (Writer.writeMembersToJSON(saveJson.getSelectedFile(), ScannerWeb.getList())) {
 							JOptionPane.showMessageDialog(null, "File Svaed");
 						} else {
 							JOptionPane.showMessageDialog(null, "File not saved");
