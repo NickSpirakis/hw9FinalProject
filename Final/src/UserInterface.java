@@ -1,12 +1,14 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 public class UserInterface extends JFrame {
 
-	//hola just a test
+	
 	
 	private String textToShow;
 	private JTextArea tx;
@@ -39,7 +41,7 @@ public class UserInterface extends JFrame {
 		setJMenuBar(mbar);
 	}
 	public void setupUI() {
-		textToShow = "";
+		ArrayList<Model> textToShow;
 		setTitle("Top Websites Visted Monthly");
 		setBounds(500, 500, 800, 800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,8 +66,11 @@ public class UserInterface extends JFrame {
 		btnTxtToFetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String text = txtToFetch.getText();
-				textToShow = textToShow + "\n" + text;
-				tx.setText(textToShow);
+				ScannerWeb.scraper(text);
+				//textToShow = ScannerWeb.getList();
+				tx.append("hello");
+				//(textToShow);
+				
 			}
 		});
 		
@@ -82,7 +87,19 @@ public class UserInterface extends JFrame {
 		btnSaveToText.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//save to text
-				
+				try {
+					JFileChooser saveText = new JFileChooser("c:\\");
+					if(saveText.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+						
+						if (Writer.toTextFile(fname, ScannerWeb.getList())) {
+							JOptionPane.showMessageDialog(null, "File Svaed");
+						} else {
+							JOptionPane.showMessageDialog(null, "File not saved");
+						}
+					}
+				}catch(Exception ex) {
+					System.out.println("Could not save the file");
+				}
 			}
 		});
 		
@@ -91,7 +108,18 @@ public class UserInterface extends JFrame {
 		btnSaveToText.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//save to json
-				
+				try {
+					JFileChooser saveJson = new JFileChooser(new File("c:\\"));
+					if(saveJson.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+						if (Writer.writeMembersToJSON(fname, ScannerWeb.getList())) {
+							JOptionPane.showMessageDialog(null, "File Svaed");
+						} else {
+							JOptionPane.showMessageDialog(null, "File not saved");
+						}
+					}
+				}catch(Exception ex) {
+					System.out.println("Could not save the file");
+				}
 			}
 		});
 		panSouth.add(btnSaveToText);
@@ -110,6 +138,7 @@ public class UserInterface extends JFrame {
 	
 	public static void main(String[] args) {
 		UserInterface ui = new UserInterface();
+		ui.setLocationRelativeTo(null);
 		ui.setVisible(true);
 }
 }
