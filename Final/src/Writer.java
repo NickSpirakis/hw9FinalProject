@@ -43,6 +43,7 @@ public class Writer {
 				modObj.put("rank", m.getRank());
 				modObj.put("name", m.getSite());
 				modObj.put("number", m.getPeople());
+				array.add(modObj);
 			
 			}
 			JSONObject outer = new JSONObject();

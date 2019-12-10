@@ -101,7 +101,7 @@ public class UserInterface extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//save to text
 				try {
-					JFileChooser saveText = new JFileChooser("c:\\");
+					JFileChooser saveText = new JFileChooser("c:\\temp\\");
 					if(saveText.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 						
 						if (Writer.toTextFile(saveText.getSelectedFile(), ScannerWeb.getList())) {
