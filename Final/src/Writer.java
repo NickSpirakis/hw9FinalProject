@@ -11,15 +11,10 @@ public class Writer {
 	/**
 	 * This function will save the data and output a text file
 	 * it will only only need two inout to make this function work
-	 * @param enter the desired name for the .txt file, 
-	 * pass in the ArrayList<Model>  
+	 * @param the desired name for the .txt file, in the ArrayList<Model>  
 	 * @return true if everything work out fine 
 	 * false if a error has been catch 
 	 * */
-
-
-	
-	//this function writes to a text file
 	public static boolean toTextFile(File fname, ArrayList<Model> mod) {
 		PrintWriter pw;
 		try {//checking if everything is OK
@@ -32,7 +27,7 @@ public class Writer {
 		String line = "test";
 		for(int i = 0; i<mod.size(); i++) {
 			
-			line = String.format("%s%25s %s", mod.get(i).getRank(), mod.get(i).getSite(), mod.get(i).getPeople() );
+			line = String.format("%s\t%25s\t%10s\n", mod.get(i).getRank(), mod.get(i).getSite(), mod.get(i).getPeople() );
 			
 			pw.print(line);	
 		}// end of for loop
@@ -41,6 +36,13 @@ public class Writer {
 	}//end of toTextFile()
 	
 	
+	/**
+	 * This class will make make a .json file and save the <Model> objects  as a list 
+	 * to make this function work just enter a FIle and a ArrayList  in to the pararmter 
+	 * @param name of File, ArrayList of Model 
+	 * @return  will returns true if everything went well
+	 * return false when there is a error 
+	 * */
 	public static boolean writeMembersToJSON(File fname, ArrayList<Model> mod) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));

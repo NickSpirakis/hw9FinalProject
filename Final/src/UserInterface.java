@@ -91,6 +91,7 @@ public class UserInterface extends JFrame {
 		 * the UI, not just in files
 		 */
 		tx = new JTextArea();
+		tx.setFont(new Font("monospaced", Font.PLAIN, 12));
 		JScrollPane scroll = new JScrollPane(tx, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.getVerticalScrollBar().setValue(0);
 		c.add(scroll); //adding scrollbar and text area at same time
@@ -108,13 +109,15 @@ public class UserInterface extends JFrame {
 				textToShow = ScannerWeb.getList();
 				for (int i = 0; i < textToShow.size(); i++) {
 					
-					str = str + String.format("%s%25s %s", textToShow.get(i).getRank(), textToShow.get(i).getSite(), textToShow.get(i).getPeople() );
-					str = str + "\n";
+					str = str + String.format("%s\t%25s\t%10s\n", textToShow.get(i).getRank(), textToShow.get(i).getSite(), textToShow.get(i).getPeople() );
 					tx.setText(str);
-				}
+				}//end of for loop
+				
 				
 			}
-		});
+		});		
+		
+		
 		/**
 		 * adds to UI
 		 */
@@ -141,7 +144,7 @@ public class UserInterface extends JFrame {
 					if(saveText.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 						
 						if (Writer.toTextFile(saveText.getSelectedFile(), ScannerWeb.getList())) {
-							JOptionPane.showMessageDialog(null, "File Svaed");
+							JOptionPane.showMessageDialog(null, "File Saved");
 						} else {
 							JOptionPane.showMessageDialog(null, "File not saved");
 						}
@@ -165,7 +168,7 @@ public class UserInterface extends JFrame {
 					JFileChooser saveJson = new JFileChooser(new File("c:\\temp\\"));
 					if(saveJson.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 						if (Writer.writeMembersToJSON(saveJson.getSelectedFile(), ScannerWeb.getList())) {
-							JOptionPane.showMessageDialog(null, "File Svaed");
+							JOptionPane.showMessageDialog(null, "File Saved");
 						} else {
 							JOptionPane.showMessageDialog(null, "File not saved");
 						}

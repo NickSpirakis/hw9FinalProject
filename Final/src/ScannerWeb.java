@@ -24,8 +24,7 @@ public class ScannerWeb {
 		ScannerWeb.scraper("https://www.quantcast.com/top-sites/US?userView=Public");
 		for(int i =0; i<webList.size(); i++) {
 			System.out.println(webList.get(i));
-			}
-		
+			}		
 	}
 	*/
 	

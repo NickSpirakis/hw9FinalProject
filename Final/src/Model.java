@@ -68,7 +68,7 @@ public class Model implements Serializable {
 		
 		//str = str + String.format("%.10s   \t%s....................  %s", getRank(), getSite(), getPeople() );
 		
-		str = str + String.format("%s%25s %s", getRank(), getSite(), getPeople() );
+		str = str + String.format("%s\t%25s\t%10s", getRank(), getSite(), getPeople() );
 		
 		return str;
 	}	
