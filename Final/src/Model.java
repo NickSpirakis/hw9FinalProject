@@ -2,16 +2,16 @@ import java.io.Serializable;
 
 /**
  * This class will hold the any data that we need it to hold from the website  
- * it has a toString that will format the data 
+ * we will be holding three data type form the website 
+ * the tree data type are all String  
+ * rank - will hold the number pos in the list that it is in
+ * site - can hold the URL of website 
+ * people - is going to hold number of people that visit the website per month
  * 
- * */
-
+ * This has two constructors a default and one overload. The overload will need three String datatypes 
+ * 
+ */
 public class Model implements Serializable {
-	/*
-	 *rank will hold the number pos in the list that it s in
-	 *site i s the name of website 
-	 *people is the number of people that visit the website per month  
-	 * */
 	private String rank, site, people;
 	
 	//getters and setter 
@@ -47,7 +47,14 @@ public class Model implements Serializable {
 		people = "";
 		
 	}
-	//overload
+	
+	/**
+	 * This is a overload constructor it will three String data types
+	 * @param rank number,
+	 * website name(URL), 
+	 * number of people
+	 * 
+	 */
 	public Model(String r, String s, String p) {
 		setRank(r);
 		setSite(s);

@@ -1,17 +1,26 @@
-
-
-//this will wrtie the data to the screen the cconsle most likey
-//wtrie out a text file .txt
-//write out a jason file .json
-
 import org.json.simple.*;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This class will output two different file a .txt and a .json file 
+ * it will save the data in a formated way as display in the UI and that is the data that it will be saving 
+ * */
 public class Writer {
 	
+	/**
+	 * This function will save the data and output a text file
+	 * it will only only need two inout to make this function work
+	 * @param enter the desired name for the .txt file, 
+	 * pass in the ArrayList<Model>  
+	 * @return true if everything work out fine 
+	 * false if a error has been catch 
+	 * */
+
+
+	
 	//this function writes to a text file
-	public static boolean toTextFile(String fname, ArrayList<Model> mod) {
+	public static boolean toTextFile(File fname, ArrayList<Model> mod) {
 		PrintWriter pw;
 		try {//checking if everything is OK
 			pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));			
@@ -32,7 +41,7 @@ public class Writer {
 	}//end of toTextFile()
 	
 	
-	public static boolean writeMembersToJSON(String fname, ArrayList<Model> mod) {
+	public static boolean writeMembersToJSON(File fname, ArrayList<Model> mod) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
 			JSONObject modObj;
@@ -43,6 +52,7 @@ public class Writer {
 				modObj.put("rank", m.getRank());
 				modObj.put("name", m.getSite());
 				modObj.put("number", m.getPeople());
+				array.add(modObj);
 			
 			}
 			JSONObject outer = new JSONObject();
@@ -54,9 +64,7 @@ public class Writer {
 		}catch (Exception ex){
 			return false;
 		}
-	}
-	
-	
+	}//end of JSON()
 	
 	
 }//end of class
