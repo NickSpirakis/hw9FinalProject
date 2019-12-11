@@ -72,9 +72,11 @@ public class UserInterface extends JFrame {
 		
 		tx = new JTextArea();
 		JScrollPane scroll = new JScrollPane(tx, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		c.add(scroll);
-		c.add(tx, BorderLayout.CENTER);
+		scroll.getVerticalScrollBar().setValue(0);
+		c.add(scroll); //adding scrollbar and text area at same time
 		
+		//c.add(tx, BorderLayout.CENTER); this was old code without scroll
+	
 		btnTxtToFetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//tx = new JTextArea();
@@ -159,6 +161,7 @@ public class UserInterface extends JFrame {
 	public static void main(String[] args) {
 		UserInterface ui = new UserInterface();
 		ui.setLocationRelativeTo(null);
+		
 		ui.setVisible(true);
 }
 }
