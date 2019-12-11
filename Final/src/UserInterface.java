@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+/**
+ * setUpMenu function is 
+ * */
+
+
 public class UserInterface extends JFrame {
 
 	
@@ -66,8 +71,12 @@ public class UserInterface extends JFrame {
 		btnTxtToFetch.setBounds(50, 50, 200, 200);
 		
 		tx = new JTextArea();
-		c.add(tx, BorderLayout.CENTER);
+		JScrollPane scroll = new JScrollPane(tx, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll.getVerticalScrollBar().setValue(0);
+		c.add(scroll); //adding scrollbar and text area at same time
 		
+		//c.add(tx, BorderLayout.CENTER); this was old code without scroll
+	
 		btnTxtToFetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//tx = new JTextArea();
@@ -101,10 +110,10 @@ public class UserInterface extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//save to text
 				try {
-					JFileChooser saveText = new JFileChooser("c:\\");
+					JFileChooser saveText = new JFileChooser("c:\\temp\\");
 					if(saveText.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 						
-						if (Writer.toTextFile(fname, ScannerWeb.getList())) {
+						if (Writer.toTextFile(saveText.getSelectedFile(), ScannerWeb.getList())) {
 							JOptionPane.showMessageDialog(null, "File Svaed");
 						} else {
 							JOptionPane.showMessageDialog(null, "File not saved");
@@ -118,13 +127,13 @@ public class UserInterface extends JFrame {
 		
 		JButton btnSaveToJson = new JButton("Save to json");
 		btnSaveToJson.setBounds(150, 150, 300, 300);	//this should change size but on this one i don't think it does
-		btnSaveToText.addActionListener(new ActionListener() {
+		btnSaveToJson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//save to json
 				try {
-					JFileChooser saveJson = new JFileChooser(new File("c:\\"));
+					JFileChooser saveJson = new JFileChooser(new File("c:\\temp\\"));
 					if(saveJson.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-						if (Writer.writeMembersToJSON(fname, ScannerWeb.getList())) {
+						if (Writer.writeMembersToJSON(saveJson.getSelectedFile(), ScannerWeb.getList())) {
 							JOptionPane.showMessageDialog(null, "File Svaed");
 						} else {
 							JOptionPane.showMessageDialog(null, "File not saved");
@@ -152,6 +161,7 @@ public class UserInterface extends JFrame {
 	public static void main(String[] args) {
 		UserInterface ui = new UserInterface();
 		ui.setLocationRelativeTo(null);
+		
 		ui.setVisible(true);
 }
 }
